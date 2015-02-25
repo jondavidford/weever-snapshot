@@ -1,0 +1,30 @@
+These instructions show how to load the Xeon Phi with a custom
+OS image, be it a Linux-like one or a general ELF format. 
+
+first reset the Xeon Phi, so that it appears in the 'ready' state:
+$> micctrl --reset mic0
+
+to make sure it is really shut down and in the 'ready' state, run:
+$> micctrl -s
+
+to see the status. It should read as 'ready'.
+
+when it is shut down and in the 'ready' state, we can then load our own
+OS image onto the Phi:
+
+for the mics you care about, it's as easy as:
+
+$> echo boot:linux:<linux_path>:<initrd_path> >  /sys/class/mic/micN/state
+
+for Linux. Or for ELF:
+
+$> echo boot:elf:<elf_path> >  /sys/class/mic/micN/state
+
+I've written a utility to do this for you, and then wait for a doorbell
+that I've added from a modified version of the Weever bootloader
+
+$> ./boot_phi_and_wait -t 60 
+
+where the '-t' flag is the timeout. Default is 60 seconds.
+
+The code is decently commented, and should be mostly self-explanatory. 

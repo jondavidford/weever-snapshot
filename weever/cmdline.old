@@ -1,0 +1,1 @@
+quiet root=ramfs console=hvc0 cgroup_disable=memory highres=off micpm=cpufreq_on;corec6_off;pc3_on;pc6_off
