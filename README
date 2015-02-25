@@ -1,4 +1,13 @@
+---------------
+WEEVER SNAPSHOT
+---------------
 This repository stores a snapshot of our modified Weever bootloader that successfully loads and jumps into the Nautilus kernel on the Intel Phi Coprocessor
+
+-----------------
+OUR MODIFICATIONS
+-----------------
+In order to get Weever to load Nautilus, we had to remove several checks from Weever that were only relevant for a Barrelfish boot process. This included checking the Phi ID and checking that location in memory of various structs did not overlap with their copy destinations. In addition, we removed the call to elf64_relocator() in loader.c because Nautilus does not have any modules that need to be relocated as barrelfish does.
+
 
 -------------------------------
 INSTRUCTIONS TO USE BOOT SCRIPT
