@@ -1,3 +1,8 @@
+This repository stores a snapshot of our modified Weever bootloader that successfully loads and jumps into the Nautilus kernel on the Intel Phi Coprocessor
+
+-------------------------------
+INSTRUCTIONS TO USE BOOT SCRIPT
+-------------------------------
 These instructions show how to load the Xeon Phi with a custom
 OS image, be it a Linux-like one or a general ELF format. 
 
